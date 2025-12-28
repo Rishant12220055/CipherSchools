@@ -1,0 +1,96 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    font-family: $font-main;
+    line-height: 1.5;
+    font-weight: 400;
+    color-scheme: dark;
+}
+
+body {
+    margin: 0;
+    background-color: $color-bg-dark; // Flat, professional dark
+    color: $color-text-main;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
+
+// Global Selection Color
+::selection {
+    background: rgba($color-primary, 0.2);
+    color: white;
+}
+
+a {
+    color: $color-primary;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0 0 $spacing-md 0;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+button {
+    font-family: inherit;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: $color-bg-dark;
+}
+
+::-webkit-scrollbar-thumb {
+    background: $color-border;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: $color-text-muted;
+}
+
+// App Layout
+.app {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: $spacing-md;
+
+    &__header {
+        margin-bottom: $spacing-xl;
+        text-align: center;
+        padding: $spacing-xl 0;
+
+        h1 {
+            color: $color-primary;
+            // background: linear-gradient(to right, $color-primary, $color-accent); // Removed
+            // -webkit-background-clip: text;
+            // -webkit-text-fill-color: transparent;
+            font-size: 3rem;
+            margin-bottom: $spacing-xs;
+        }
+
+        p {
+            color: $color-text-muted;
+            font-size: 1.2rem;
+        }
+    }
+}

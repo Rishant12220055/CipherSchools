@@ -1,0 +1,325 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.assignment-attempt {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 4rem);
+    max-width: 100%; // Full width for workspace
+    margin: 0;
+    padding: 0 $spacing-md;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: $spacing-md;
+        padding: $spacing-md 0;
+        border-bottom: 1px solid $color-border;
+        background-color: $color-bg-dark; // Solid header
+
+        h2 {
+            margin: 0;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: $color-text-main;
+        }
+
+        .back-link {
+            color: $color-text-subtle;
+            font-size: 0.875rem;
+            transition: $transition-default;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+
+            &:hover {
+                color: $color-primary;
+            }
+        }
+
+        .actions {
+            display: flex;
+            gap: $spacing-sm;
+        }
+    }
+
+    &__workspace {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-md;
+        flex-grow: 1;
+        overflow: hidden;
+        margin-bottom: $spacing-md;
+
+        @include desktop {
+            flex-direction: row;
+        }
+
+        .panel-left {
+            flex: 1;
+            overflow-y: auto;
+            @include panel-base;
+            padding: $spacing-md;
+            border-radius: $radius-md;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .panel-right {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            gap: $spacing-md;
+            overflow: hidden;
+        }
+    }
+}
+
+.question-panel {
+
+    h3,
+    h4 {
+        color: $color-text-main;
+        margin-bottom: $spacing-sm;
+        font-weight: 600;
+        font-size: 1rem;
+    }
+
+    h3 {
+        margin-top: 0;
+    }
+
+    h4 {
+        margin-top: $spacing-lg;
+        color: $color-text-subtle;
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    p {
+        color: $color-text-muted;
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .schema-browser {
+        margin-top: $spacing-sm;
+
+        .table-preview {
+            background: $color-bg-dark;
+            border-radius: $radius-md;
+            margin-bottom: $spacing-md;
+            border: 1px solid $color-border;
+            // No hover effects on schema table container
+
+            .table-header {
+                padding: $spacing-xs $spacing-sm;
+                background: $color-bg-card-hover;
+                font-size: 0.8rem;
+                font-family: $font-code;
+                color: $color-text-main;
+                border-bottom: 1px solid $color-border;
+                font-weight: 500;
+            }
+
+            .table-scroll {
+                overflow-x: auto;
+            }
+
+            .mini-table {
+                width: 100%;
+                border-collapse: collapse;
+                font-size: 0.8rem;
+                font-family: $font-code;
+
+                th,
+                td {
+                    padding: 6px 10px;
+                    text-align: left;
+                    border-bottom: 1px solid $color-border;
+                    white-space: nowrap;
+                }
+
+                th {
+                    color: $color-text-subtle;
+                    font-weight: 600;
+                    background: transparent;
+                }
+
+                td {
+                    color: $color-text-muted;
+                }
+
+                tr:last-child td {
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+}
+
+.editor-panel {
+    flex: 1;
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
+    overflow: hidden;
+    background: #0d1117;
+    // No fancy shadows
+}
+
+.result-panel {
+    flex: 1;
+    overflow-y: auto;
+    @include panel-base;
+    padding: 0;
+    border-radius: $radius-md;
+    display: flex;
+    flex-direction: column;
+
+    &--error {
+        padding: $spacing-md;
+        border-color: $color-error;
+        background: rgba($color-error, 0.05);
+
+        h4 {
+            color: $color-error;
+            margin-top: 0;
+            margin-bottom: $spacing-sm;
+        }
+
+        pre {
+            color: $color-error;
+            white-space: pre-wrap;
+            font-family: $font-code;
+            background: transparent;
+        }
+    }
+
+    &--empty {
+        padding: $spacing-md;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $color-text-subtle;
+    }
+
+    .result-banner {
+        padding: $spacing-sm $spacing-md;
+        border-bottom: 1px solid $color-border;
+        background: $color-bg-card-hover;
+        font-weight: 500;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        &--success {
+            background-color: rgba($color-success, 0.1);
+            color: $color-success;
+            border-bottom-color: rgba($color-success, 0.2);
+        }
+
+        &--failure {
+            background-color: rgba($color-error, 0.1);
+            color: $color-error;
+            border-bottom-color: rgba($color-error, 0.2);
+        }
+    }
+
+    .table-wrapper {
+        flex: 1;
+        overflow: auto;
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            font-size: 0.9rem;
+            font-family: $font-code;
+
+            th,
+            td {
+                text-align: left;
+                padding: $spacing-sm $spacing-md;
+                border-bottom: 1px solid $color-border;
+            }
+
+            th {
+                color: $color-text-subtle;
+                font-weight: 600;
+                position: sticky;
+                top: 0;
+                background: $color-bg-card;
+                z-index: 10;
+                font-size: 0.75rem;
+                text-transform: uppercase;
+                border-bottom: 1px solid $color-border;
+            }
+
+            tr:hover td {
+                background-color: $color-bg-card-hover;
+            }
+
+            // Zebra striping for better readability
+            tr:nth-child(even) td {
+                background-color: rgba(255, 255, 255, 0.01);
+            }
+        }
+    }
+}
+
+.btn-primary {
+    @include btn-primary;
+}
+
+.btn-secondary {
+    @include btn-primary;
+    background-color: transparent;
+    border: 1px solid $color-border;
+    color: $color-text-main;
+
+    &:hover {
+        background-color: $color-bg-card-hover;
+        border-color: $color-text-subtle;
+    }
+}
+
+// Keyframes
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

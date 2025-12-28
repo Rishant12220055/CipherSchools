@@ -1,0 +1,51 @@
+// Professional Enterprise Dark (Zinc Palette)
+$color-bg-dark: #09090b; // Zinc 950
+$color-bg-card: #18181b; // Zinc 900
+$color-bg-card-hover: #27272a; // Zinc 800
+
+$color-primary: #3b82f6; // Blue 500 (Clean, Trustworthy)
+$color-primary-hover: #2563eb; // Blue 600
+$color-secondary: #06b6d4; // Cyan 500
+
+$color-text-main: #f4f4f5; // Zinc 100
+$color-text-muted: #a1a1aa; // Zinc 400
+$color-text-subtle: #71717a; // Zinc 500
+
+$color-border: #27272a; // Zinc 800
+$color-border-active: #3f3f46; // Zinc 700
+
+$color-success: #10b981; // Emerald 500
+$color-error: #ef4444; // Red 500
+$color-warning: #f59e0b; // Amber 500
+
+// Gradients (Subtle/Functional only)
+$gradient-main: linear-gradient(to right, #3b82f6, #2563eb); // Subtle Blue shift
+
+// Fonts
+$font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+$font-code: 'JetBrains Mono', 'Menlo', 'Monaco', 'Courier New', monospace;
+
+// Spacing
+$spacing-xs: 0.25rem;
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 1.5rem;
+$spacing-xl: 2rem;
+$spacing-xxl: 4rem;
+
+$bp-tablet: 640px;
+$bp-desktop: 1024px;
+$bp-large: 1280px;
+
+// UI Tokens
+$radius-sm: 4px;
+$radius-md: 6px; // Tighter radius for professional look
+$radius-lg: 8px;
+
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+// Animations
+$transition-fast: all 0.15s ease-in-out;
+$transition-default: all 0.2s ease-in-out;

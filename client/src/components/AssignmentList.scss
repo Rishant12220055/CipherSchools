@@ -1,0 +1,105 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.assignment-list {
+    padding: $spacing-xl;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    &__heading {
+        margin-bottom: $spacing-lg;
+        font-size: 1.875rem;
+        font-weight: 600;
+        color: $color-text-main;
+        letter-spacing: -0.025em;
+        padding-bottom: $spacing-md;
+        border-bottom: 1px solid $color-border;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: $spacing-md;
+
+        @include tablet {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include desktop {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}
+
+.assignment-card {
+    @include panel-base;
+    padding: $spacing-lg;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    height: 100%;
+
+    // Subtle interaction state
+    &:hover {
+        border-color: $color-primary;
+        box-shadow: $shadow-md;
+    }
+
+    &__badge {
+        font-size: 0.75rem;
+        padding: 2px 8px;
+        border-radius: $radius-sm;
+        margin-bottom: $spacing-md;
+        font-weight: 500;
+        border: 1px solid transparent;
+
+        &--easy {
+            background-color: rgba($color-success, 0.1);
+            color: $color-success;
+            border-color: rgba($color-success, 0.2);
+        }
+
+        &--medium {
+            background-color: rgba($color-primary, 0.1);
+            color: $color-primary;
+            border-color: rgba($color-primary, 0.2);
+        }
+
+        &--hard {
+            background-color: rgba($color-error, 0.1);
+            color: $color-error;
+            border-color: rgba($color-error, 0.2);
+        }
+    }
+
+    &__title {
+        color: $color-text-main;
+        margin-bottom: $spacing-xs;
+        font-size: 1.125rem;
+        font-weight: 600;
+        line-height: 1.4;
+    }
+
+    &__desc {
+        color: $color-text-muted;
+        font-size: 0.875rem;
+        margin-bottom: $spacing-lg;
+        flex-grow: 1;
+        line-height: 1.5;
+    }
+
+    &__btn {
+        width: 100%;
+        @include btn-primary;
+        justify-content: center;
+        background-color: transparent;
+        border: 1px solid $color-border;
+        color: $color-text-main;
+
+        &:hover {
+            background-color: $color-bg-card-hover;
+            border-color: $color-text-subtle;
+        }
+    }
+}
