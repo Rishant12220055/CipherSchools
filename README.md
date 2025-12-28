@@ -41,17 +41,17 @@ Clone the repository and install dependencies for both client and server.
 git clone <repository_url>
 cd CipherSQLStudio
 
-# Install Server Dependencies
-cd server
+# Install Backend Dependencies
+cd backend
 npm install
 
-# Install Client Dependencies
-cd ../client
+# Install Frontend Dependencies
+cd ../frontend
 npm install
 ```
 
 ### 2. Environment Configuration
-Create a `.env` file in the `server` directory with the following variables:
+Create a `.env` file in the `backend` directory with the following variables:
 
 ```env
 # Server Port
@@ -75,7 +75,7 @@ GEMINI_API_KEY=<your_gemini_api_key>
 Initialize the PostgreSQL sandbox and seed the MongoDB assignments.
 
 ```bash
-cd server
+cd backend
 
 # Create PostgreSQL Database (if not exists)
 node create_database.js
@@ -90,11 +90,11 @@ Run both frontend and backend development servers.
 
 ```bash
 # Terminal 1: Backend
-cd server
+cd backend
 npm run dev
 
 # Terminal 2: Frontend
-cd client
+cd frontend
 npm run dev
 ```
 
